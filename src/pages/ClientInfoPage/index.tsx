@@ -21,7 +21,7 @@ import {FourthCellsInput} from "../../components/FourthCellsInput";
 import {SixCellsInput} from "../../components/SixCellsInput";
 import {ElevenCellsInput} from "../../components/ElevenCellsInput";
 import {TwelveCellsInput} from "../../components/TwelveCellsInput";
-import { FaCheck } from "react-icons/fa6";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const ClientInfoPage = () => {
     const navigate = useNavigate();
@@ -240,22 +240,13 @@ export const ClientInfoPage = () => {
                 <h1 className={`${classNames(s.title)} contentTitle`}>Информация о клиенте</h1>
                 <div className={`${classNames(s.main)} contentMain`}>
                     <FieldWrapper>
-                        <div className="check">
-                            <TextInput title={"ФИО клиента:"} onChange={setNameHandler} currentValue={name}/>
-                            {(name  !== "" && name  !== undefined && name !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                        </div>
+                            <TextInput title={"ФИО клиента:"} onChange={setNameHandler} currentValue={name} status={name}/>
                         <div className={classNames(s.optionalWrapper, isChangedName && s.active)}>
                             <Checkbox value={"Менялось ФИО?"} onChange={(value:boolean) => setIsChangedName(value)} currentValue={isChangedName}/>
                             {isChangedName &&
                                 <div className={s.inputs}>
-                                    <div className="check">
                                         <TextInput title={"Укажите старые данные"} onChange={setOldNameHandler} currentValue={oldName}/>
-                                        {(oldName  !== "" && oldName  !== undefined && oldName !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                                    </div>
-                                    <div className="check">
-                                        <TextInput title={"Причина изменения"} onChange={setReasonForChangeHandler} currentValue={reasonForChange}/>
-                                        {(reasonForChange  !== "" && reasonForChange  !== undefined && reasonForChange !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                                    </div>
+                                         <TextInput title={"Причина изменения"} onChange={setReasonForChangeHandler} currentValue={reasonForChange}/>
                                 </div>
                             }
                         </div>
@@ -263,7 +254,10 @@ export const ClientInfoPage = () => {
 
                     <FieldWrapper>
                         <label htmlFor="gender" className={classNames(s.gender)}>
-                            <p className={'bold'}>Пол:</p>
+                            <div className='asterisk'>
+                                <p className={'bold'}>Пол:</p>
+                                {gender  !== undefined &&  gender  !== "" && gender !== null ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/>: <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton name={"gender"}
                                          id={"1"}
                                          onChange={setGenderHandler}
@@ -276,7 +270,7 @@ export const ClientInfoPage = () => {
                     </FieldWrapper>
 
                     <FieldWrapper>
-                        <DateInput onChange={setDateHandler} title={"Дата рождения:"} currentValue={date ? +date : 0}/>
+                        <DateInput onChange={setDateHandler} title={"Дата рождения:"} currentValue={date ? +date : 0} status={date}/>
                     </FieldWrapper>
 
                     <FieldWrapper>
@@ -284,46 +278,28 @@ export const ClientInfoPage = () => {
                     </FieldWrapper>
 
                     {/*<FieldWrapper><FourthCellsInput title={"Серия паспорта"} currentValue={passportSeries ?? ''} setCurrentValue={setPassportSeriesHandler}/></FieldWrapper>*/}
-                    <div className="check">
                         <FieldWrapper>
-                            <TextInput inputMode={'numeric'} placeholder={'1234'} title={"Серия паспорта"} onChange={setPassportSeriesHandler} currentValue={passportSeries} isNumberField={true} maxLength={4}/>
+                            <TextInput inputMode={'numeric'} placeholder={'1234'} title={"Серия паспорта"} onChange={setPassportSeriesHandler} currentValue={passportSeries} isNumberField={true} maxLength={4} status={passportSeries}/>
                         </FieldWrapper>
-                        {(passportSeries  !== "" && passportSeries  !== undefined && passportSeries !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                    </div>
                     {/*<FieldWrapper><CellsInput cellsCount={6} onChange={setPassportNumberHandler} currentValue={passportNumber} title={"Номер паспорта"}/></FieldWrapper>*/}
                     {/*<FieldWrapper><SixCellsInput currentValue={passportNumber ?? ''} setCurrentValue={setPassportNumberHandler} title={"Номер паспорта"}/></FieldWrapper>*/}
-                    <div className="check">
-                        <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456'} title={"Номер паспорта"} onChange={setPassportNumberHandler} currentValue={passportNumber} isNumberField={true} maxLength={6}/></FieldWrapper>
-                        {(passportNumber  !== "" && passportNumber  !== undefined && passportNumber !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                    </div>
+                        <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456'} title={"Номер паспорта"} onChange={setPassportNumberHandler} currentValue={passportNumber} isNumberField={true} maxLength={6} status={passportNumber}/></FieldWrapper>
                     {/*<FieldWrapper><CellsInput cellsCount={6} onChange={setDepartmentCodeHandler} currentValue={departmentCode} title={"Код подразделения"}/></FieldWrapper>*/}
 
                     {/*<FieldWrapper><SixCellsInput currentValue={departmentCode ?? ''} setCurrentValue={setDepartmentCodeHandler} title={"Код подразделения"}/></FieldWrapper>*/}
-                    <div className="check">
-                    <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456'} title={"Код подразделения"} onChange={setDepartmentCodeHandler} currentValue={departmentCode} isNumberField={true} maxLength={6}/></FieldWrapper>
-                    {(departmentCode  !== "" && departmentCode  !== undefined && departmentCode !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                    </div>
-                    <div className="check">
-                        <FieldWrapper><TextInput onChange={setIssuedByWhomHandler} currentValue={issuedByWhom} title={"Кем выдан"}/></FieldWrapper>
-                        {(issuedByWhom  !== "" && issuedByWhom  !== undefined && issuedByWhom !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                    </div>
-                    <div className="check">
-                        <FieldWrapper><TextInput onChange={setRegistrationAddressHandler} currentValue={registrationAddress} title={"Зарегистрирован(-а) по адресу"}/></FieldWrapper>
-                        {(registrationAddress  !== "" && registrationAddress  !== undefined && registrationAddress !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
-                    </div>
-
-                        <FieldWrapper><DateInput onChange={setPassportDateOfIssueHandler} currentValue={passportDateOfIssue ? +passportDateOfIssue : 0} title={"Дата выдачи"}/></FieldWrapper>
+                    <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456'} title={"Код подразделения"} onChange={setDepartmentCodeHandler} currentValue={departmentCode} isNumberField={true} maxLength={6} status={departmentCode}/></FieldWrapper>
+                        <FieldWrapper><TextInput onChange={setIssuedByWhomHandler} currentValue={issuedByWhom} title={"Кем выдан"} status={issuedByWhom}/></FieldWrapper>
+                        <FieldWrapper><TextInput onChange={setRegistrationAddressHandler} currentValue={registrationAddress} title={"Зарегистрирован(-а) по адресу"} status={registrationAddress}/></FieldWrapper>
+                        <FieldWrapper><DateInput onChange={setPassportDateOfIssueHandler} currentValue={passportDateOfIssue ? +passportDateOfIssue : 0} title={"Дата выдачи"} status={passportDateOfIssue}/></FieldWrapper>
                     
-                    <div className="check">
                     {/* <FieldWrapper> */}
                         {/*<CellsInput onChange={setClientSnilsHandler} cellsCount={11} title={"СНИЛС"} currentValue={clientSnils}/>*/}
                         {/*<ElevenCellsInput currentValue={clientSnils ?? ''} setCurrentValue={setClientSnilsHandler} title={"СНИЛС"}/>*/}
 
                         <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'12345678901'} title={"СНИЛС"} onChange={setClientSnilsHandler} currentValue={clientSnils} isNumberField={true} maxLength={11}/>
                         </FieldWrapper>
-                        {(clientSnils  !== "" && clientSnils  !== undefined && clientSnils !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck/>}
                     {/* </FieldWrapper> */}
-                    </div>
+
 
                     <FieldWrapper>
                         {/*<CellsInput onChange={setClientINNHandler} cellsCount={12} title={"ИНН (Обязательно при отсутствии СНИЛС)"} currentValue={clientINN}/>*/}

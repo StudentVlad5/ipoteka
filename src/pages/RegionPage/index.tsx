@@ -9,6 +9,7 @@ import {baseUrl} from "../../common/config";
 import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
 import {FieldWrapper} from "../../ui/FieldWrapper";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const RegionPage = () => {
     const navigate = useNavigate();
@@ -72,7 +73,7 @@ export const RegionPage = () => {
     return (
         <div className={classNames(s.RolePage)}>
             <div className={s.mainContent}>
-                <h1 className={`${classNames(s.title)} contentTitle`}>Регион приобретения</h1>
+                <h1 className={`${classNames(s.title)} contentTitle`}>Регион приобретения  {(region  !== "" && region  !== undefined && region !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}</h1>
                 <div className={`${classNames(s.main)} contentMain`}>
                     <FieldWrapper><RadioButton id={"1"} name={"region"} value={"Москва"} currentValue={region} onChange={setRegionHandler}/></FieldWrapper>
                     <FieldWrapper><RadioButton id={"2"} name={"region"} value={"Санкт-Петербург"} currentValue={region} onChange={setRegionHandler}/></FieldWrapper>

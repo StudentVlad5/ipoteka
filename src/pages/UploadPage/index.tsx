@@ -9,6 +9,8 @@ import Skeleton from "../../ui/Skeleton";
 import {FieldWrapper} from "../../ui/FieldWrapper";
 import {useActions, useAppSelector, useThunks} from "../../helpers/reduxHook";
 import {AnswerActions, AnswerState} from "../../store/reducers/answer.reducer";
+import { FaAsterisk } from "react-icons/fa6";
+import { transform } from 'typescript';
 
 export const UploadPage = () => {
     const { answerList } = useAppSelector(AnswerState);
@@ -170,7 +172,9 @@ export const UploadPage = () => {
                     </FieldWrapper>
 
                     <FieldWrapper classname={s.wrapper}>
-                        <p className={s.fileTitle}>Паспорт</p>
+                        <p className={s.fileTitle}>Паспорт
+                        {(answerList.uploads.passport  !== "" && answerList.uploads.passport  !== undefined && answerList.uploads.passport !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}
+                        </p>
                         <div className={classNames(s.fileUpload, passportName && s.active)}>
                             {((answerList && answerList.uploads.passport) || passportName) && <span className={s.successFile}>Файл загружен</span>}
                             <span>{passportName ? passportName : "ОБЗОР"}</span>
@@ -185,7 +189,9 @@ export const UploadPage = () => {
                     </FieldWrapper>
 
                     <FieldWrapper classname={s.wrapper}>
-                        <p className={s.fileTitle}>СНИЛС</p>
+                        <p className={s.fileTitle}>СНИЛС
+                        {(answerList.uploads.snils  !== "" && answerList.uploads.snils  !== undefined && answerList.uploads.snils !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}
+                        </p>
                         <div className={classNames(s.fileUpload, snilsName && s.active)}>
                             {((answerList && answerList.uploads.snils) || snilsName) && <span className={s.successFile}>Файл загружен</span>}
                             <span>{snilsName ? snilsName : "ОБЗОР"}</span>
@@ -275,7 +281,9 @@ export const UploadPage = () => {
                     </FieldWrapper>
 
                     <FieldWrapper classname={s.wrapper}>
-                        <p className={s.fileTitle}>Подписанная анкета</p>
+                        <p className={s.fileTitle}>Подписанная анкета
+                        {(answerList.uploads.anket  !== "" && answerList.uploads.anket  !== undefined && answerList.uploads.anket !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}
+                        </p>
                         <div className={classNames(s.fileUpload, anketName && s.active)}>
                             {((answerList && answerList.uploads.anket) || anketName) && <span className={s.successFile}>Файл загружен</span>}
                             <span>{anketName ? anketName : "ОБЗОР"}</span>

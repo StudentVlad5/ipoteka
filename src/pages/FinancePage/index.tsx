@@ -151,7 +151,7 @@ export const FinancePage = () => {
                 <h1 className={classNames(`${s.title} contentTitle`)}>Финансы</h1>
                 <div className={classNames(`${s.main} contentMain`)}>
                     <FieldWrapper><p>Доходы</p></FieldWrapper>
-                    <FieldWrapper><TextInput onChange={setAmountBasicIncomeHandler} title={"Основной доход \u20bd/мес"} currentValue={amountBasicIncome}/></FieldWrapper>
+                    <FieldWrapper><TextInput onChange={setAmountBasicIncomeHandler} title={"Основной доход \u20bd/мес"} currentValue={amountBasicIncome} status={amountBasicIncome}/></FieldWrapper>
                     <FieldWrapper><TextInput onChange={setAmountPensionHandler} title={"Пенсия \u20bd/мес"} currentValue={amountPension}/></FieldWrapper>
                     <FieldWrapper><TextInput onChange={setAmountPartTimeIncomeHandler} title={"Доход по совместительству \u20bd/мес"} currentValue={amountPartTimeIncome}/></FieldWrapper>
 

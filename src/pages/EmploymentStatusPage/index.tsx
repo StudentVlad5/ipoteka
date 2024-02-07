@@ -10,6 +10,7 @@ import {DateInput} from "../../ui/DateInput";
 import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
 import {baseUrl} from "../../common/config";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const EmploymentStatusPage = () => {
     const navigate = useNavigate();
@@ -75,7 +76,7 @@ export const EmploymentStatusPage = () => {
     return (
         <div className={classNames(s.RolePage)}>
             <div className={s.mainContent}>
-                <h1 className={`${classNames(s.title)} contentTitle`}>Статус занятости</h1>
+                <h1 className={`${classNames(s.title)} contentTitle`}>Статус занятости {(status  !== "" && status  !== undefined && status !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}</h1>
                 <div className={classNames(`${s.main} contentMain`)}>
                     <label htmlFor="status">
                         <RadioButton name={"status"}

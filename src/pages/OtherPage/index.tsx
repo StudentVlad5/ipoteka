@@ -10,6 +10,7 @@ import {FieldWrapper} from "../../ui/FieldWrapper";
 import {RadioButton} from "../../ui/RadioButton";
 import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const OtherPage = () => {
     const navigate = useNavigate();
@@ -86,7 +87,10 @@ export const OtherPage = () => {
 
                 <div className={`${s.main} contentMain`}>
                     <FieldWrapper>
-                        <p className={s.fieldTitle}>Условия страхования</p>
+                        <div className="asterisk">
+                            <p className={s.fieldTitle}>Условия страхования</p>
+                            {(insuranceConditions  !== "" && insuranceConditions  !== undefined && insuranceConditions !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                        </div>
                         <FieldWrapper>
                             <RadioButton currentValue={insuranceConditions} id={'1'} name={'insuranceConditions'} value={"Полный пакет (Выгодный процент по ипотеке)"} onChange={setInsuranceConditionsHandler}/>
                             <div className={s.textBox}>
@@ -104,7 +108,12 @@ export const OtherPage = () => {
                     </FieldWrapper>
 
                     <FieldWrapper>
-                        <FieldWrapper><p className={s.fieldTitle}>Заверения</p></FieldWrapper>
+                        <FieldWrapper>
+                            <div className="asterisk">
+                                <p className={s.fieldTitle}>Заверения</p>
+                                {(executive  !== "" && executive  !== undefined && executive !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
+                        </FieldWrapper>
                         {/*<br/>*/}
                         <FieldWrapper>
                             <RadioButton currentValue={executive} id={'3'} name={'executive'} value={"Не являюсь"} onChange={setExecutiveHandler}/>
@@ -126,9 +135,10 @@ export const OtherPage = () => {
                             <RadioButton currentValue={bankrupt} id={'5'} name={'bankrupt'} value={"Не нахожусь"} onChange={setBankruptHandler}/>
                             <RadioButton currentValue={bankrupt} id={'6'} name={'bankrupt'} value={"Нахожусь"} onChange={setBankruptHandler}/>
                             <div className={s.textBox}>
-                                <p>
-                                    на стадии подачи заявления о признании себя банкротом (либо не планирую инициировать подачу такого заявления), а также не имеется основания для подачи заявлений признании меня банкротом у третьих лиц.
-                                </p>
+                                    <p>
+                                        на стадии подачи заявления о признании себя банкротом (либо не планирую инициировать подачу такого заявления), а также не имеется основания для подачи заявлений признании меня банкротом у третьих лиц.
+                                        {(bankrupt  !== "" && bankrupt  !== undefined && bankrupt !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}
+                                    </p>
                             </div>
                         </FieldWrapper>
                     </FieldWrapper>

@@ -8,6 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {baseUrl} from "../../common/config";
 import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const ProofIncomePage = () => {
     const navigate = useNavigate();
@@ -99,7 +100,7 @@ export const ProofIncomePage = () => {
     return (
         <div className={classNames(s.IncomeProofPage)}>
             <div className={s.mainContent}>
-                <h1 className={`${classNames(s.title)} contentTitle`}>Подтверждение дохода</h1>
+                <h1 className={`${classNames(s.title)} contentTitle`}>Подтверждение дохода {(incomeProof  !== "" && incomeProof  !== undefined && incomeProof !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}</h1>
                 <div className={`${classNames(s.main)} contentMain`}>
                     <label htmlFor="incomeProof">
                         <RadioButton name={"incomeProof"}

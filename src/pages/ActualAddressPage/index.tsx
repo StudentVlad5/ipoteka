@@ -13,6 +13,7 @@ import {CellsInput} from "../../ui/CellsInput";
 import {FieldWrapper} from "../../ui/FieldWrapper";
 import {NumberInput} from "../../ui/NumberInput";
 import {SixCellsInput} from "../../components/SixCellsInput";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const ActualAddressPage = () => {
     const navigate = useNavigate();
@@ -181,11 +182,11 @@ export const ActualAddressPage = () => {
                         {/*<FieldWrapper><SixCellsInput currentValue={index ?? ''} setCurrentValue={setIndexHandler} title={"Индекс"}/></FieldWrapper>*/}
                         <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456'} title={"Индекс"} onChange={setIndexHandler} currentValue={index} isNumberField={true} maxLength={6}/></FieldWrapper>
 
-                        <FieldWrapper><TextInput onChange={setCountryHandler} title={"Страна"} currentValue={country}/></FieldWrapper>
+                        <FieldWrapper><TextInput onChange={setCountryHandler} title={"Страна"} currentValue={country} status={country}/></FieldWrapper>
                         <FieldWrapper><TextInput onChange={setRegionHandler} title={"Регион проживания (область, край и пр.)"} currentValue={region}/></FieldWrapper>
                         <FieldWrapper><TextInput onChange={setDistrictHandler} title={"Район"} currentValue={district}/></FieldWrapper>
-                        <FieldWrapper><TextInput onChange={setLocalityHandler} title={"Населенный пункт"} currentValue={locality}/></FieldWrapper>
-                        <FieldWrapper><TextInput onChange={setStreetHandler} title={"Улица"} currentValue={street}/></FieldWrapper>
+                        <FieldWrapper><TextInput onChange={setLocalityHandler} title={"Населенный пункт"} currentValue={locality} status={locality}/></FieldWrapper>
+                        <FieldWrapper><TextInput onChange={setStreetHandler} title={"Улица"} currentValue={street} status={street}/></FieldWrapper>
 
                         <FieldWrapper>
                             <div className={s.smallWrapper}>
@@ -202,7 +203,10 @@ export const ActualAddressPage = () => {
 
                         <FieldWrapper>
                             <label htmlFor="reasonsForResidence">
-                                <p>Основание для проживания</p>
+                                <div className="asterisk">
+                                    <p>Основание для проживания</p>
+                                    {(reasonsForResidence  !== "" && reasonsForResidence  !== undefined && reasonsForResidence !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                                </div>
                                 <RadioButton name={"reasonsForResidence"}
                                              id={"1"}
                                              onChange={setReasonsForResidenceHandler}

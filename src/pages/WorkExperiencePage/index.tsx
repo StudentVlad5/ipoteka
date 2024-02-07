@@ -12,6 +12,7 @@ import Checkbox from "../../ui/Checkbox";
 import {DateInput} from "../../ui/DateInput";
 import {FieldWrapper} from "../../ui/FieldWrapper";
 import {NumberInput} from "../../ui/NumberInput";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const WorkExperiencePage = () => {
     const navigate = useNavigate();
@@ -146,17 +147,23 @@ export const WorkExperiencePage = () => {
             <div className={s.mainContent}>
                 <h1 className={classNames(`${s.title} contentTitle`)}>Трудовой стаж</h1>
                 <div className={classNames(`${s.main} contentMain`)}>
-                    <FieldWrapper><DateInput onChange={setStartOfWorkDateHandler} currentValue={startOfWorkDate ? +startOfWorkDate : 0} title={"Начало труд.деятельности"}/></FieldWrapper>
-                    <FieldWrapper><DateInput onChange={setStartOfWorkInCurrentOrganizationDateHandler} currentValue={startOfWorkInCurrentOrganizationDate ? +startOfWorkInCurrentOrganizationDate : 0} title={"В данной организации"}/></FieldWrapper>
+                    <FieldWrapper><DateInput onChange={setStartOfWorkDateHandler} currentValue={startOfWorkDate ? +startOfWorkDate : 0} title={"Начало труд.деятельности"} status={startOfWorkDate}/></FieldWrapper>
+                    <FieldWrapper><DateInput onChange={setStartOfWorkInCurrentOrganizationDateHandler} currentValue={startOfWorkInCurrentOrganizationDate ? +startOfWorkInCurrentOrganizationDate : 0} title={"В данной организации"} status={startOfWorkInCurrentOrganizationDate}/></FieldWrapper>
 
                     <FieldWrapper>
                         <div className={classNames(s.smallWrapper)}>
-                            <p>Общий трудовой стаж</p>
+                            <div className="asterisk">
+                                <p>Общий трудовой стаж</p>
+                                {(totalWorkExperienceYear  !== "" && totalWorkExperienceYear  !== undefined && totalWorkExperienceYear !== null &&totalWorkExperienceMonth  !== "" && totalWorkExperienceMonth  !== undefined && totalWorkExperienceMonth !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <NumberInput onChange={setTotalWorkExperienceYearHandler} currentValue={totalWorkExperienceYear} title={"Лет"} mods={"verySmall"}/>
                             <NumberInput onChange={setTotalWorkExperienceMonthHandler} currentValue={totalWorkExperienceMonth} title={"Мес."} mods={"verySmall"}/>
                         </div>
                         <div className={classNames(s.smallWrapper)}>
-                            <p>Стаж на текущей работе</p>
+                            <div className="asterisk">
+                                <p>Стаж на текущей работе</p>
+                                {(currentOrganizationWorkExperienceYear  !== "" && currentOrganizationWorkExperienceYear  !== undefined && currentOrganizationWorkExperienceYear !== null && currentOrganizationWorkExperienceMonth  !== "" && currentOrganizationWorkExperienceMonth  !== undefined && currentOrganizationWorkExperienceMonth !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <NumberInput onChange={setCurrentOrganizationWorkExperienceYearHandler} currentValue={currentOrganizationWorkExperienceYear} title={"Лет"} mods={"verySmall"}/>
                             <NumberInput onChange={setCurrentOrganizationWorkExperienceMonthHandler} currentValue={currentOrganizationWorkExperienceMonth} title={"Мес."} mods={"verySmall"}/>
                         </div>
@@ -164,7 +171,10 @@ export const WorkExperiencePage = () => {
 
                     <FieldWrapper>
                         <label htmlFor="lifespanCurrentOrganization">
-                            <p>Существование организации</p>
+                            <div className="asterisk">
+                                <p>Существование организации</p>
+                                {(lifespanCurrentOrganization  !== "" && lifespanCurrentOrganization  !== undefined && lifespanCurrentOrganization !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton id={"1"}
                                          name={"lifespanCurrentOrganization"}
                                          value={"До 2 лет"}
@@ -180,7 +190,7 @@ export const WorkExperiencePage = () => {
                         </label>
                     </FieldWrapper>
 
-                    <FieldWrapper><TextInput onChange={setJobTitleHandler} currentValue={jobTitle} title={"Название должности"}/></FieldWrapper>
+                    <FieldWrapper><TextInput onChange={setJobTitleHandler} currentValue={jobTitle} title={"Название должности"} status={jobTitle}/></FieldWrapper>
                     <FieldWrapper><p>Зарплатный проект/пенсия в банке:</p></FieldWrapper>
                     <FieldWrapper><TextInput onChange={setNameSalaryBankHandler} currentValue={nameSalaryBank} title={"Название банка"}/></FieldWrapper>
                     <FieldWrapper><TextInput onChange={setSalaryCardNumberHandler} currentValue={salaryCardNumber} title={"Номер зарплатной/пенсионной карты"}/></FieldWrapper>

@@ -127,9 +127,9 @@ export const CreditSumPage = () => {
             <div className={s.mainContent}>
                 <h1 className={`${classNames(s.title)} contentTitle`}>Информация о кредите</h1>
                 <div className={`${classNames(s.main)} contentMain`}>
-                    <FieldWrapper><NumberInput onChange={setAppartCostHandler} currentValue={appartCost} title={"Стоимость квартиры \u20bd"}></NumberInput></FieldWrapper>
-                    <FieldWrapper><NumberInput onChange={setInitialPaymentHandler} currentValue={initialPayment} title={"Первоначальный взнос \u20bd"}></NumberInput></FieldWrapper>
-                    <FieldWrapper><NumberInput onChange={setCreditSumHandler} currentValue={creditSum} title={"Сумма кредита \u20bd"}></NumberInput></FieldWrapper>
+                    <FieldWrapper><NumberInput onChange={setAppartCostHandler} currentValue={appartCost} title={"Стоимость квартиры \u20bd"} status={appartCost}></NumberInput></FieldWrapper>
+                    <FieldWrapper><NumberInput onChange={setInitialPaymentHandler} currentValue={initialPayment} title={"Первоначальный взнос \u20bd"} status={initialPayment}></NumberInput></FieldWrapper>
+                    <FieldWrapper><NumberInput onChange={setCreditSumHandler} currentValue={creditSum} title={"Сумма кредита \u20bd"} status={creditSum}></NumberInput></FieldWrapper>
                     <FieldWrapper>
                         <RadioButton name={"subcidies"}
                                      id={"1"}
@@ -156,7 +156,7 @@ export const CreditSumPage = () => {
                                              <NumberInput title={"Размер мат. капитала \u20bd:"} currentValue={matCapitalAmount} onChange={setMatCapitalAmountHandler}/>
                                          </div>}/>
                     </FieldWrapper>
-                    <FieldWrapper><NumberInput currentValue={creditTerm} onChange={setCreditTermHandler} title={"Срок кредита (месяцев)"} mods={"small"}/></FieldWrapper>
+                    <FieldWrapper><NumberInput currentValue={creditTerm} onChange={setCreditTermHandler} title={"Срок кредита (месяцев)"} mods={"small"} status={creditTerm}/></FieldWrapper>
                     <FieldWrapper><NumberInput currentValue={paymentDate} onChange={setPaymentDateHandler} title={"Удобная дата платежа (число месяца)"} mods={"small"}/></FieldWrapper>
 
                     <label htmlFor="paymentType" className={s.paymentType}>

@@ -10,6 +10,7 @@ import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
 import {FinancePage} from "../FinancePage";
 import {FieldWrapper} from "../../ui/FieldWrapper";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const AdditionalConditionsPage = () => {
     const navigate = useNavigate();
@@ -86,7 +87,7 @@ export const AdditionalConditionsPage = () => {
     return (
         <div className={classNames(s.RolePage)}>
             <div className={s.mainContent}>
-                <h1 className={classNames(`${s.title} contentTitle`)}>Тип программы</h1>
+                <h1 className={classNames(`${s.title} contentTitle`)}>Тип программы {(programType  !== "" && programType  !== undefined && programType !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}</h1>
                 <div className={classNames(`${s.main} contentMain`)}>
                     <FieldWrapper>
                         <label htmlFor="programType">

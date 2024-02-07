@@ -19,7 +19,7 @@ export const ProgressBar = ({
     }
     const { answerList } = useAppSelector(AnswerState);
     // const id = localStorage.getItem('deal_id');
-    const id = answerList.deal_id;
+    const id = answerList?.deal_id;
 
     return (
         <div className={s.ProgressBarWrapper}>

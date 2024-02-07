@@ -11,6 +11,7 @@ import {AnswerState} from "../../store/reducers/answer.reducer";
 import Checkbox from "../../ui/Checkbox";
 import {NumberInput} from "../../ui/NumberInput";
 import {DateInput} from "../../ui/DateInput";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const EmploymentPage = () => {
     const navigate = useNavigate();
@@ -119,7 +120,10 @@ export const EmploymentPage = () => {
                 <h1 className={classNames(`${s.title} contentTitle`)}>Занятость</h1>
                 <div className={classNames(`${s.main} contentMain`)}>
                     <Checkbox value={"Есть работа по совместительству"} onChange={setClientPartTimeJobHandler} currentValue={clientPartTimeJob}/>
-                    <p>Тип занятости</p>
+                    <div className="asterisk">
+                        <p>Тип занятости</p>
+                        {(clientEmploymentType  !== "" && clientEmploymentType  !== undefined && clientEmploymentType !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                    </div>
                     <label htmlFor="clientEmploymentType">
                         <RadioButton id={"1"}
                                      name={"clientEmploymentType"}

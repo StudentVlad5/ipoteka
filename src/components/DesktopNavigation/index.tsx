@@ -302,13 +302,9 @@ export const DesktopNavigation = () => {
                         <div className="check">                
                             <Link to={"/other"}>Прочее</Link>
                             {answerList && 
-                            answerList['passportName'] && 
-                            answerList['snilsName'] && 
-                            answerList['ndflName'] && 
-                            answerList['employmentHistoryName'] && 
-                            answerList['ReferenceBankName'] && 
-                            answerList['extractName'] && 
-                            answerList['anketName'] && 
+                            answerList['insuranceConditions'] && 
+                            answerList['executive'] && 
+                            answerList['bankrupt'] &&
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -326,9 +322,14 @@ export const DesktopNavigation = () => {
                         <div className="check">  
                             <Link to={"/upload-files"}>Приложить файлы</Link>
                             {answerList && 
-                            answerList['insuranceConditions'] && 
-                            answerList['executive'] && 
-                            answerList['bankrupt'] && 
+                            answerList.uploads.passport && 
+                            answerList.uploads.snils && 
+                            answerList.uploads.ndfl && 
+                            answerList.uploads.employmentHistory && 
+                            answerList.uploads.referenceBank && 
+                            answerList.uploads.extractName && 
+                            // answerList.uploads.otherName && 
+                            answerList.uploads.anket &&  
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>

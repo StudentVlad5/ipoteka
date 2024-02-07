@@ -10,6 +10,7 @@ import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
 import {FieldWrapper} from "../../ui/FieldWrapper";
 import {NumberInput} from "../../ui/NumberInput";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const SocialStatusPage = () => {
     const navigate = useNavigate();
@@ -132,7 +133,10 @@ export const SocialStatusPage = () => {
                 <h1 className={classNames(`${s.title} contentTitle`)}>Социальный статус</h1>
                 <div className={classNames(`${s.main} contentMain`)}>
                     <FieldWrapper>
-                        <p>Образование</p>
+                        <div className="asterisk">
+                            <p>Образование</p>
+                            {(education  !== "" && education  !== undefined && education !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                        </div>
                         <RadioButton id={"12"} name={"education"} value={educationFields[0]} currentValue={education} onChange={setEducationHandler}/>
                         <RadioButton id={"13"} name={"education"} value={educationFields[1]} currentValue={education} onChange={setEducationHandler}/>
                         <RadioButton id={"14"} name={"education"} value={educationFields[2]} currentValue={education} onChange={setEducationHandler}/>
@@ -149,7 +153,10 @@ export const SocialStatusPage = () => {
 
                     <FieldWrapper>
                         <label htmlFor="familyStatus">
-                            <p>Семейное положение</p>
+                            <div className="asterisk">
+                                <p>Семейное положение</p>
+                                {(familyStatus  !== "" && familyStatus  !== undefined && familyStatus !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton name={"familyStatus"}
                                          id={"1"}
                                          onChange={setFamilyStatusHandler}
@@ -175,7 +182,10 @@ export const SocialStatusPage = () => {
 
                     <FieldWrapper>
                         <label htmlFor="marriageContract">
-                            <p>Брачный контракт</p>
+                            <div className="asterisk">
+                                <p>Брачный контракт</p>
+                                {(marriageContract  !== "" && marriageContract  !== undefined && marriageContract !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton name={"marriageContract"}
                                          id={"6"}
                                          onChange={setMarriageContractHandler}
@@ -193,7 +203,10 @@ export const SocialStatusPage = () => {
 
                     <FieldWrapper>
                         <label htmlFor="partnerSocialStatus">
-                            <p>Соц.статус супруга(-и)</p>
+                            <div className="asterisk">
+                                <p>Соц.статус супруга(-и)</p>
+                                {(partnerSocialStatus  !== "" && partnerSocialStatus  !== undefined && partnerSocialStatus !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton name={"partnerSocialStatus"}
                                          id={"9"}
                                          onChange={setPartnerSocialStatusHandler}

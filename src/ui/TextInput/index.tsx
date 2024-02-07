@@ -1,5 +1,6 @@
 import s from './index.module.scss';
 import classNames from "classnames";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const TextInput = ({
     title,
@@ -10,7 +11,8 @@ export const TextInput = ({
     isNumberField,
     maxLength,
     placeholder,
-    inputMode
+    inputMode,
+    status
 } : {
     title?: string
     onChange: (str: string) => void
@@ -20,7 +22,8 @@ export const TextInput = ({
     isNumberField?: boolean,
     maxLength?: number,
     placeholder?: string,
-    inputMode?: 'numeric'
+    inputMode?: 'numeric',
+    status?: any
 }) => {
     function validate(evt:any) {
         var theEvent = evt || window.event;
@@ -35,7 +38,10 @@ export const TextInput = ({
 
     return (
         <div className={classNames(s.TextInput, mods ? s[mods] : "")}>
-            <span className={classNames(s.title)}>{title}</span>
+            <div>
+                <span className={classNames(s.title)}>{title}</span>
+                {status  === undefined ? '' : (status  === "" || status === null) ? <FaAsterisk style={{fill:'gray', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>: <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}
+            </div>
             <input inputMode={inputMode ?? undefined} placeholder={placeholder ?? undefined} className={classNames(s.input)} type={"text"} onChange={(e: any) => onChange(e.target.value)} value={currentValue ? currentValue : ''} onFocus={onFocus ?? null} onKeyPress={isNumberField ? validate : undefined} maxLength={maxLength ?? undefined}/>
         </div>
     );

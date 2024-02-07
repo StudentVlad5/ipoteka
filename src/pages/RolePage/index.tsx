@@ -8,7 +8,7 @@ import {useNavigate} from "react-router-dom";
 import {baseUrl} from "../../common/config";
 import {useAppSelector} from "../../helpers/reduxHook";
 import {AnswerState} from "../../store/reducers/answer.reducer";
-import { FaCheck } from "react-icons/fa6";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const RolePage = () => {
     const navigate = useNavigate();
@@ -99,7 +99,7 @@ export const RolePage = () => {
     return (
         <div className={classNames(s.RolePage)}>
             <div className={s.mainContent}>
-                <h1 className={`${classNames(s.title)} contentTitle`}>Роль клиента</h1>
+                    <h1 className={`${classNames(s.title)} contentTitle`}>Роль клиента  {(role  !== "" && role  !== undefined && role !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px", transform:"translateY(-10px)"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px", transform:"translateY(-10px)"}}/>}</h1>
                 <div className={`${classNames(s.main)} contentMain`}>
                     <label htmlFor="role">
                         <RadioButton name={"role"}
@@ -113,16 +113,10 @@ export const RolePage = () => {
                                      isDropdown={true}
                                      currentValue={role}
                                      children={
-                                         <div className={s.box}>
-                                            <div className="check">
-                                                <TextInput title={"ФИО заемщика:"} onChange={setNameHandler} currentValue={name}/>
-                                                {(name  !== "" && name  !== undefined && name !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck />}
-                                            </div>
-                                            <div className="check">
-                                                <TextInput title={"Степень родства с заёмщиком:"} onChange={setDegreeHandler} currentValue={degree}/>
-                                                {(degree  !== "" && degree  !== undefined && degree !== null)? <FaCheck style={{fill:'green'}}/> : <FaCheck />}
-                                             </div>
-                                         </div>}/>
+                                        <div className={s.box}>
+                                            <TextInput title={"ФИО заемщика:"} onChange={setNameHandler} currentValue={name}/>
+                                           <TextInput title={"Степень родства с заёмщиком:"} onChange={setDegreeHandler} currentValue={degree}/>
+                                        </div>}/>
                     </label>
                 </div>
             </div>

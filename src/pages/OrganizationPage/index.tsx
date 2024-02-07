@@ -13,6 +13,7 @@ import {FieldWrapper} from "../../ui/FieldWrapper";
 import {TelInput} from "../../ui/TelInput";
 import {CellsInput} from "../../ui/CellsInput";
 import {TwelveCellsInput} from "../../components/TwelveCellsInput";
+import { FaAsterisk } from "react-icons/fa6";
 
 export const OrganizationPage = () => {
     const navigate = useNavigate();
@@ -142,16 +143,21 @@ export const OrganizationPage = () => {
                     <FieldWrapper>
                         <TextInput onChange={setOrganizationNameHandler}
                                    title={'Полное наименование организации-работодателя (с указанием ее организационно-правовой формы "ООО", "ПАО" и т.д)'}
-                                   currentValue={organizationName}/>
+                                   currentValue={organizationName}
+                                   status={organizationName}/>
                     </FieldWrapper>
                     <FieldWrapper>
                         <TextInput onChange={setActualOrganizationAddressHandler}
-                                   title={"Фактический адрес организации"} currentValue={actualOrganizationAddress}/>
+                                   title={"Фактический адрес организации"} currentValue={actualOrganizationAddress}
+                                   status={actualOrganizationAddress}/>
                     </FieldWrapper>
 
                     <FieldWrapper>
                         <label htmlFor="organiztionIndusrty">
-                            <p>Отраслевая принадлежность</p>
+                            <div className="asterisk">
+                                <p>Отраслевая принадлежность</p>
+                                {(organizationIndustry  !== "" && organizationIndustry  !== undefined && organizationIndustry !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton id={"1"}
                                          name={"organiztionIndusrty"}
                                          value={"Адвокат/юрист"}
@@ -239,7 +245,10 @@ export const OrganizationPage = () => {
 
                     <FieldWrapper>
                         <label htmlFor="organizationStaffAmount">
-                            <p>Численность персонала</p>
+                            <div className="asterisk">
+                                <p>Численность персонала</p>
+                                {(organizationStaffAmount  !== "" && organizationStaffAmount  !== undefined && organizationStaffAmount !== null) ? <FaAsterisk style={{fill:'green', width: "15px", height:"15px"}}/> : <FaAsterisk style={{fill:'grey', width: "15px", height:"15px"}}/>}
+                            </div>
                             <RadioButton id={"21"}
                                          name={"organizationStaffAmount"}
                                          value={"менее 10"}
@@ -267,11 +276,11 @@ export const OrganizationPage = () => {
                         </label>
                     </FieldWrapper>
                     <FieldWrapper><TextInput onChange={setOrganizationWebSiteHandler} title={"Сайт организации"} currentValue={organizationWebSite}/></FieldWrapper>
-                    <FieldWrapper><TelInput onChange={setOrganizationPhoneNumberHandler} title={"Телефон организации (Отдел кадров или бухгалтерия)"} currentValue={organizationPhoneNumber}/></FieldWrapper>
+                    <FieldWrapper><TelInput onChange={setOrganizationPhoneNumberHandler} title={"Телефон организации (Отдел кадров или бухгалтерия)"} currentValue={organizationPhoneNumber} status={organizationPhoneNumber}/></FieldWrapper>
                     {/*<FieldWrapper><CellsInput cellsCount={12} onChange={setOrganizationINNHandler} title={"ИНН организации"} currentValue={organizationINN}/></FieldWrapper>*/}
 
                     {/*<FieldWrapper><TwelveCellsInput currentValue={organizationINN ?? ''} setCurrentValue={setOrganizationINNHandler} title={"ИНН организации"}/></FieldWrapper>*/}
-                    <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456789012'} title={"ИНН организации"} onChange={setOrganizationINNHandler} currentValue={organizationINN} isNumberField={true} maxLength={12}/></FieldWrapper>
+                    <FieldWrapper><TextInput inputMode={'numeric'} placeholder={'123456789012'} title={"ИНН организации"} onChange={setOrganizationINNHandler} currentValue={organizationINN} isNumberField={true} maxLength={12} status={organizationINN}/></FieldWrapper>
                 </div>
             </div>
             <div className={s.btns}>
