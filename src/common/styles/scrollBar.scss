@@ -1,0 +1,39 @@
+/* Скрытие - Скрол бара (ScrollBar) */
+::-webkit-scrollbar-button {
+  //background-image:url('');
+  background-repeat:no-repeat;
+  width: 4px;
+  height: 8px;
+  pointer-events: none;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+  padding: 2px;
+
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 0px;
+  background-color: rgba(166, 166, 166, 0.51);
+
+  //border-radius: 3px;
+  overflow: hidden;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background-color: #5463b0;
+}
+
+::-webkit-resizer{
+  //background-image:url('');
+  background-repeat:no-repeat;
+  width:4px;
+  height:0px;
+}
+
+::-webkit-scrollbar{
+  width: 5px;
+  height: 5px;
+}
+/* END Скрытие - Стилизация Скрол бара (ScrollBar) */

@@ -1,0 +1,44 @@
+.cellInputWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 5px 0;
+  width: 100%;
+  .title {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .cells {
+    display: flex;
+    gap: 5px;
+    .input {
+      padding: 10px 5px;
+      //width: 40px;
+      width: 35px;
+
+      font-size: 18px;
+      text-align: center;
+
+      border-radius: 5px;
+      background-color: #f8f8f8;
+      border: 1px solid #99ada7;
+    }
+  }
+  @media (max-width: 600px) {
+    .cells {
+      gap: 5px;
+      .input {
+        padding: 10px 0;
+        width: 25px;
+      }
+    }
+  }
+  @media (max-width: 400px) {
+    .cells {
+      .input {
+        padding: 10px 0;
+        width: 22px;
+      }
+    }
+  }
+}

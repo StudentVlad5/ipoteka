@@ -1,0 +1,14 @@
+.RolePage {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  .title {
+    margin: 10px 0;
+
+    font-weight: 600;
+    font-size: 32px;
+  }
+  .main {
+    height: 100%;
+  }
+}

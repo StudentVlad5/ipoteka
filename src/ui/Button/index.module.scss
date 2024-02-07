@@ -1,0 +1,40 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  &.grey {
+    button {
+      background-color: #d0d0d1;
+      &:hover {
+        background-color: #D53215;
+        //transition: all .2s ease-in-out;
+      }
+      &:disabled {
+        background-color: #989898;
+      }
+    }
+  }
+}
+.button {
+  padding: 10px 25px;
+
+  font-size: 24px;
+  color: #ffffff;
+
+  border: none;
+  border-radius: 30px;
+  background-color: #05ABD1;
+
+  cursor: pointer;
+
+  transition: background-color .1s ease-in-out;
+  &:hover {
+    background-color: #D53215;
+    //transition: all .2s ease-in-out;
+  }
+  &:disabled {
+    background-color: rgba(5, 171, 209, 0.37);
+
+    cursor: initial;
+  }
+}

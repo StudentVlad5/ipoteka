@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+@import "common/styles/reset";
+@import "common/styles/scrollBar";
+
+body {
+  //padding: 0 15px;
+
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  //min-height: 100vh;
+}
+#root {
+  //height: 100%;
+}
+.react-date-picker__clear-button {
+  display: none;
+}
+
+.contentTitle {
+  padding: 10px 0 20px;
+
+  font-weight: 500;
+  font-size: 31px;
+  color: #000000;
+
+  //border-bottom: 1px solid #c9c6c6;
+  &:after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    bottom: 0;
+
+    display: block;
+    width: calc(100% + 40px);
+    height: 1px;
+
+    background-color: #e0dddd;
+  }
+}
+.contentMain {
+  padding: 30px 0;
+  * {
+    font-size: 24px !important;
+  }
+}
+
+@media (max-width: 800px) {
+  .contentTitle {
+    padding: 0px 0 15px;
+  }
+  .contentMain {
+    padding: 15px 0;
+  }
+}
+
+.bold {
+  font-weight: 600;
+}
+.check {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}

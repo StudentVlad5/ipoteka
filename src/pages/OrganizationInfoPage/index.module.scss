@@ -1,0 +1,27 @@
+.RolePage {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  .title {
+    margin: 10px 0;
+
+    font-weight: 600;
+    font-size: 32px;
+  }
+  .main {
+    height: 100%;
+
+    font-size: 20px;
+    p {
+      margin: 10px 0;
+      font-weight: 500;
+    }
+    .smallWrapper {
+      margin: 0 -5px;
+      p {
+        margin: 10px 0 0 5px;
+        font-weight: 500;
+      }
+    }
+  }
+}
