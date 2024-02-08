@@ -129,7 +129,7 @@ export const DesktopNavigation = () => {
 
                     <li className={classNames(s.navItem, (answerList && answerList['income-proof']) && s.fullfield, location.pathname === '/income-proof' && s.active)}>
                         <div className="check">
-                        <Link to={"/income-proof"}>Подтверждение дохода</Link>
+                            <Link to={"/income-proof"}>Подтверждение дохода</Link>
                             {answerList && 
                             answerList['incomeProof'] && 
                             <FaCheck style={{fill:'green'}}/>}

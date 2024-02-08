@@ -6,6 +6,7 @@ import {AnswerActions, AnswerState} from "../../store/reducers/answer.reducer";
 import {useActions, useAppDispatch, useAppSelector} from "../../helpers/reduxHook";
 import classNames from "classnames";
 import {baseUrl} from "../../common/config";
+import { FaCheck } from "react-icons/fa6";
 
 export const MobileNavigation = () => {
     const navigate = useNavigate();
@@ -70,61 +71,162 @@ export const MobileNavigation = () => {
                 <ul className={s.navList}>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList.role) && s.fullfield, location.pathname === '/role' && s.active)}>
+                    <div className="check">
                         <Link to={"/role"}>Роль клиента</Link>
+                        {((answerList && answerList.clientRole) || (answerList &&  answerList.clientName && answerList.clientDegree)) && <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['client-info']) && s.fullfield, location.pathname === '/client-info' && s.active)}>
-                        {
+                        <div className="check">
                             <Link to={"/client-info"}>Информация о клиенте</Link>
-                        }
+                            {answerList && answerList['clientDriverLicense'] &&
+                            answerList['clientFullName'] &&
+                            answerList['clientEmail'] &&
+                            answerList['clientHomePhoneNumber'] &&
+                            answerList['clientInternationalPassport'] &&
+                            answerList['clientMilitaryID'] &&
+                            answerList['clientPhoneNumber'] &&
+                            answerList['passportDateOfIssue'] &&
+                            answerList['passportNumber'] &&
+                            answerList['passportSeries'] &&
+                            answerList['registrationAddress'] &&
+                            answerList['DOB'] &&
+                            answerList['relativeNameAndPhoneNumber'] &&
+                            answerList['clientGender'] &&
+                            answerList['clientINN'] &&
+                            answerList['clientInternationalPassport'] &&
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['employment-status']) && s.fullfield, location.pathname === '/employment-status' && s.active)}>
-                        <Link to={"/employment-status"}>Статус занятости</Link>
+                        <div className="check">
+                            <Link to={"/employment-status"}>Статус занятости</Link>
+                            {answerList && answerList['employment-status'] && <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['credit-target']) && s.fullfield, location.pathname === '/credit-target' && s.active)}>
-                        <Link to={"/credit-target"}>Цель кредита</Link>
+                        <div className="check">
+                            <Link to={"/credit-target"}>Цель кредита</Link>
+                            {answerList && answerList['creditTargetType'] && <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['region']) && s.fullfield, location.pathname === '/region' && s.active)}>
-                        <Link to={"/region"}>Регион приобретения</Link>
+                        <div className="check">
+                            <Link to={"/region"}>Регион приобретения</Link>
+                            {answerList && answerList['cityOfAcquisition'] && <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['credit-info']) && s.fullfield, location.pathname === '/credit-info' && s.active)}>
-                        <Link to={"/credit-info"}>Информация о кредите</Link>
+                        <div className="check">
+                            <Link to={"/credit-info"}>Информация о кредите</Link>
+                            {answerList && 
+                            answerList['initialPayment'] && 
+                            answerList['paymentDate'] && 
+                            answerList['creditSum'] && 
+                            answerList['appartCost'] && 
+                            answerList['creditTerm'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['income-proof']) && s.fullfield, location.pathname === '/income-proof' && s.active)}>
-                        <Link to={"/income-proof"}>Подтверждение дохода</Link>
+                        <div className="check">
+                            <Link to={"/income-proof"}>Подтверждение дохода</Link>
+                            {answerList && 
+                            answerList['incomeProof'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['source-initial-payment']) && s.fullfield, location.pathname === '/source-initial-payment' && s.active)}>
-                        <Link to={"/source-initial-payment"}>Источник ПВ</Link>
+                        <div className="check">
+                            <Link to={"/source-initial-payment"}>Источник ПВ</Link>
+                            {answerList && 
+                            answerList['sourceInitialPayment'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['additional-conditions']) && s.fullfield, location.pathname === '/additional-conditions' && s.active)}>
-                        <Link to={"/additional-conditions"}>Тип программы</Link>
+                        <div className="check">
+                            <Link to={"/additional-conditions"}>Тип программы</Link>
+                            {answerList && 
+                            answerList['programType'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['actual-address']) && s.fullfield, location.pathname === '/actual-address' && s.active)}>
-                        <Link to={"/actual-address"}>Адрес факn. проживания</Link>
+                        <div className="check">
+                            <Link to={"/actual-address"}>Адрес факт. проживания</Link>
+                            {answerList && 
+                            answerList['actualCountry'] && 
+                            answerList['actualDistrict'] && 
+                            answerList['actualHouse'] && 
+                            answerList['actualIndex'] && 
+                            answerList['actualLengthOfStay'] && 
+                            answerList['actualLocality'] && 
+                            answerList['actualRegion'] && 
+                            answerList['actualStreet'] && 
+                            answerList['actualAddressReasonsForResidence'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['social-status']) && s.fullfield, location.pathname === '/social-status' && s.active)}>
-                        <Link to={"/social-status"}>Социальный статус</Link>
+                        <div className="check">
+                            <Link to={"/social-status"}>Социальный статус</Link>
+                            {answerList && 
+                            answerList['education'] && 
+                            answerList['familyStatus'] && 
+                            answerList['marriageContract'] && 
+                            answerList['partnerSocialStatus'] && 
+                            answerList['amountOfChildren'] && 
+                            answerList['amountFamily'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['employment-info']) && s.fullfield, location.pathname === '/employment-info' && s.active)}>
-                        <Link to={"/employment-info"}>Занятость</Link>
+                        <div className="check">
+                            <Link to={"/employment-info"}>Занятость</Link>
+                            {answerList && 
+                            answerList['clientEmploymentType'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['organization']) && s.fullfield, location.pathname === '/organization' && s.active)}>
-                        <Link to={"/organization"}>Организация</Link>
+                        <div className="check">                        
+                            <Link to={"/organization"}>Организация</Link>
+                            {answerList && 
+                            answerList['organizationActualAddress'] && 
+                            answerList['organizationINN'] && 
+                            answerList['organizationIndustry'] && 
+                            answerList['organizationStaffAmount'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['work-experience']) && s.fullfield, location.pathname === '/work-experience' && s.active)}>
-                        <Link to={"/work-experience"}>Трудовой стаж</Link>
+                        <div className="check">   
+                            <Link to={"/work-experience"}>Трудовой стаж</Link>
+                            {answerList && 
+                            answerList['currentOrganizationWorkExperience'] && 
+                            answerList['jobTitle'] && 
+                            answerList['lifespanCurrentOrganization'] && 
+                            answerList['nameSalaryBank'] && 
+                            answerList['salaryCardNumber'] && 
+                            answerList['startOfWorkDate'] && 
+                            answerList['startOfWorkInCurrentOrganizationDate'] && 
+                            answerList['totalWorkExperience'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     {
@@ -149,15 +251,37 @@ export const MobileNavigation = () => {
                     }
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['client-finance']) && s.fullfield, location.pathname === '/client-finance' && s.active)}>
-                        <Link to={"/client-finance"}>Финансы</Link>
+                        <div className="check">   
+                            <Link to={"/client-finance"}>Финансы</Link>
+                            {answerList && 
+                            answerList['amountBasicIncome'] && 
+                            answerList['sumIncome'] && 
+                            answerList['sumExpenses'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['assets-Vehicle-1']) && s.fullfield, location.pathname === '/assets-Vehicle-1' && s.active)}>
-                        <Link to={"/assets-Vehicle-1"}>Транспортное средство</Link>
+                        <div className="check">                           
+                            <Link to={"/assets-Vehicle-1"}>Транспортное средство</Link>
+                            {answerList && 
+                            answerList['vehiclePrice1'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['assets-immovables-1']) && s.fullfield, location.pathname === '/assets-immovables-1' && s.active)}>
-                        <Link to={"/assets-immovables-1"}>Недвижимость</Link>
+                        <div className="check"> 
+                            <Link to={"/assets-immovables-1"}>Недвижимость</Link>
+                            {answerList && 
+                            answerList['immovablesType1'] && 
+                            answerList['immovablesPrice1'] && 
+                            answerList['immovablesShareSize1'] && 
+                            answerList['immovablesAddress1'] && 
+                            answerList['immovablesYear1'] && 
+                            answerList['immovablesSquare1'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     {
@@ -182,15 +306,39 @@ export const MobileNavigation = () => {
                     }
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['other']) && s.fullfield, location.pathname === '/other' && s.active)}>
-                        <Link to={"/other"}>Прочее</Link>
+                        <div className="check">                
+                            <Link to={"/other"}>Прочее</Link>
+                            {answerList && 
+                            answerList['insuranceConditions'] && 
+                            answerList['executive'] && 
+                            answerList['bankrupt'] &&
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['additional-information']) && s.fullfield, location.pathname === '/additional-information' && s.active)}>
-                        <Link to={"/additional-information"}>Доп. информация</Link>
+                        <div className="check">                        
+                            <Link to={"/additional-information"}>Доп. информация</Link>
+                            {answerList && 
+                            answerList['additionalInformation'] && 
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['upload-files']) && s.fullfield, location.pathname === '/upload-files' && s.active)}>
-                        <Link to={"/upload-files"}>Приложить файлы</Link>
+                        <div className="check">  
+                            <Link to={"/upload-files"}>Приложить файлы</Link>
+                            {answerList && 
+                            answerList.uploads.passport && 
+                            answerList.uploads.snils && 
+                            answerList.uploads.ndfl && 
+                            answerList.uploads.employmentHistory && 
+                            answerList.uploads.referenceBank && 
+                            answerList.uploads.extractName && 
+                            // answerList.uploads.otherName && 
+                            answerList.uploads.anket &&  
+                            <FaCheck style={{fill:'green'}}/>}
+                        </div>
                     </li>
 
                     <li className={classNames(s.navItem, (answerList && answerList['additional-information']) && s.fullfield)}>
