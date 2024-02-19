@@ -66,29 +66,15 @@ export const DesktopNavigation = () => {
                     <li className={classNames(s.navItem, (answerList && answerList.role) && s.fullfield, location.pathname === '/role' && s.active)}>
                         <div className="check">
                         <Link to={"/role"}>Роль клиента</Link>
-                        {((answerList && answerList.clientRole) || (answerList &&  answerList.clientName && answerList.clientDegree)) && <FaCheck style={{fill:'green'}}/>}
+                        {answerList && answerList['role']  && 
+                        <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
 
                     <li className={classNames(s.navItem, (answerList && answerList['client-info']) && s.fullfield, location.pathname === '/client-info' && s.active)}>
                         <div className="check">
                             <Link to={"/client-info"}>Информация о клиенте</Link>
-                            {answerList && answerList['clientDriverLicense'] &&
-                            answerList['clientFullName'] &&
-                            answerList['clientEmail'] &&
-                            answerList['clientHomePhoneNumber'] &&
-                            answerList['clientInternationalPassport'] &&
-                            answerList['clientMilitaryID'] &&
-                            answerList['clientPhoneNumber'] &&
-                            answerList['passportDateOfIssue'] &&
-                            answerList['passportNumber'] &&
-                            answerList['passportSeries'] &&
-                            answerList['registrationAddress'] &&
-                            answerList['DOB'] &&
-                            answerList['relativeNameAndPhoneNumber'] &&
-                            answerList['clientGender'] &&
-                            answerList['clientINN'] &&
-                            answerList['clientInternationalPassport'] &&
+                            {answerList && answerList['cclient-info'] &&
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -103,14 +89,15 @@ export const DesktopNavigation = () => {
                     <li className={classNames(s.navItem, (answerList && answerList['credit-target']) && s.fullfield, location.pathname === '/credit-target' && s.active)}>
                         <div className="check">
                             <Link to={"/credit-target"}>Цель кредита</Link>
-                            {answerList && answerList['creditTargetType'] && <FaCheck style={{fill:'green'}}/>}
+                            {answerList && answerList['credit-target'] && <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
 
                     <li className={classNames(s.navItem, (answerList && answerList['region']) && s.fullfield, location.pathname === '/region' && s.active)}>
                         <div className="check">
                             <Link to={"/region"}>Регион приобретения</Link>
-                            {answerList && answerList['cityOfAcquisition'] && <FaCheck style={{fill:'green'}}/>}
+                            {answerList && answerList['region'] && 
+                            <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
 
@@ -118,11 +105,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/credit-info"}>Информация о кредите</Link>
                             {answerList && 
-                            answerList['initialPayment'] && 
-                            answerList['paymentDate'] && 
-                            answerList['creditSum'] && 
-                            answerList['appartCost'] && 
-                            answerList['creditTerm'] && 
+                            answerList['credit-info'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -131,7 +114,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/income-proof"}>Подтверждение дохода</Link>
                             {answerList && 
-                            answerList['incomeProof'] && 
+                            answerList['income-proof'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -140,7 +123,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/source-initial-payment"}>Источник ПВ</Link>
                             {answerList && 
-                            answerList['sourceInitialPayment'] && 
+                            answerList['source-initial-payment'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -149,7 +132,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/additional-conditions"}>Тип программы</Link>
                             {answerList && 
-                            answerList['programType'] && 
+                            answerList['additional-conditions'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -158,15 +141,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/actual-address"}>Адрес факт. проживания</Link>
                             {answerList && 
-                            answerList['actualCountry'] && 
-                            answerList['actualDistrict'] && 
-                            answerList['actualHouse'] && 
-                            answerList['actualIndex'] && 
-                            answerList['actualLengthOfStay'] && 
-                            answerList['actualLocality'] && 
-                            answerList['actualRegion'] && 
-                            answerList['actualStreet'] && 
-                            answerList['actualAddressReasonsForResidence'] && 
+                            answerList['actual-address'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -175,12 +150,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/social-status"}>Социальный статус</Link>
                             {answerList && 
-                            answerList['education'] && 
-                            answerList['familyStatus'] && 
-                            answerList['marriageContract'] && 
-                            answerList['partnerSocialStatus'] && 
-                            answerList['amountOfChildren'] && 
-                            answerList['amountFamily'] && 
+                            answerList['social-status'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -189,7 +159,7 @@ export const DesktopNavigation = () => {
                         <div className="check">
                             <Link to={"/employment-info"}>Занятость</Link>
                             {answerList && 
-                            answerList['clientEmploymentType'] && 
+                            answerList['employment-info'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -198,10 +168,7 @@ export const DesktopNavigation = () => {
                         <div className="check">                        
                             <Link to={"/organization"}>Организация</Link>
                             {answerList && 
-                            answerList['organizationActualAddress'] && 
-                            answerList['organizationINN'] && 
-                            answerList['organizationIndustry'] && 
-                            answerList['organizationStaffAmount'] && 
+                            answerList['organization'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -210,14 +177,7 @@ export const DesktopNavigation = () => {
                         <div className="check">   
                             <Link to={"/work-experience"}>Трудовой стаж</Link>
                             {answerList && 
-                            answerList['currentOrganizationWorkExperience'] && 
-                            answerList['jobTitle'] && 
-                            answerList['lifespanCurrentOrganization'] && 
-                            // answerList['nameSalaryBank'] && 
-                            // answerList['salaryCardNumber'] && 
-                            answerList['startOfWorkDate'] && 
-                            answerList['startOfWorkInCurrentOrganizationDate'] && 
-                            answerList['totalWorkExperience'] && 
+                            answerList['work-experience'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -247,9 +207,7 @@ export const DesktopNavigation = () => {
                         <div className="check">   
                             <Link to={"/client-finance"}>Финансы</Link>
                             {answerList && 
-                            answerList['amountBasicIncome'] && 
-                            answerList['sumIncome'] && 
-                            answerList['sumExpenses'] && 
+                            answerList['client-finance'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -258,7 +216,7 @@ export const DesktopNavigation = () => {
                         <div className="check">                           
                             <Link to={"/assets-Vehicle-1"}>Транспортное средство</Link>
                             {answerList && 
-                            answerList['vehiclePrice1'] && 
+                            answerList['assets-Vehicle-1'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -267,13 +225,8 @@ export const DesktopNavigation = () => {
                         <div className="check"> 
                             <Link to={"/assets-immovables-1"}>Недвижимость</Link>
                             {answerList && 
-                            answerList['immovablesType1'] && 
-                            answerList['immovablesPrice1'] && 
-                            answerList['immovablesShareSize1'] && 
-                            answerList['immovablesAddress1'] && 
-                            answerList['immovablesYear1'] && 
-                            answerList['immovablesSquare1'] && 
-                            <FaCheck style={{fill:'green'}}/>}
+                            answerList['assets-immovables-1'] && 
+                           <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
 
@@ -281,6 +234,9 @@ export const DesktopNavigation = () => {
                         (answerList && answerList.immovablesType2) &&
                         <li className={classNames(s.navItem, (answerList && answerList['assets-immovables-2']) && s.fullfield, location.pathname === '/assets-immovables-2' && s.active)}>
                             <Link to={"/assets-immovables-2"}>Недвижимость #2</Link>
+                            {answerList && 
+                            answerList['assets-immovables-2'] && 
+                           <FaCheck style={{fill:'green'}}/>}
                         </li>
                     }
 
@@ -288,6 +244,9 @@ export const DesktopNavigation = () => {
                         (answerList && answerList.immovablesType3) &&
                         <li className={classNames(s.navItem, (answerList && answerList['assets-immovables-3']) && s.fullfield, location.pathname === '/assets-immovables-3' && s.active)}>
                             <Link to={"/assets-immovables-3"}>Недвижимость #3</Link>
+                            {answerList && 
+                            answerList['assets-immovables-3'] && 
+                           <FaCheck style={{fill:'green'}}/>}
                         </li>
                     }
 
@@ -302,9 +261,7 @@ export const DesktopNavigation = () => {
                         <div className="check">                
                             <Link to={"/other"}>Прочее</Link>
                             {answerList && 
-                            answerList['insuranceConditions'] && 
-                            answerList['executive'] && 
-                            answerList['bankrupt'] &&
+                            answerList['other'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -313,7 +270,7 @@ export const DesktopNavigation = () => {
                         <div className="check">                        
                             <Link to={"/additional-information"}>Доп. информация</Link>
                             {answerList && 
-                            answerList['additionalInformation'] && 
+                            answerList['additional-information'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
@@ -322,14 +279,7 @@ export const DesktopNavigation = () => {
                         <div className="check">  
                             <Link to={"/upload-files"}>Приложить файлы</Link>
                             {answerList && 
-                            answerList.uploads.passport && 
-                            answerList.uploads.snils && 
-                            answerList.uploads.ndfl && 
-                            answerList.uploads.employmentHistory && 
-                            answerList.uploads.referenceBank && 
-                            answerList.uploads.extractName && 
-                            // answerList.uploads.otherName && 
-                            answerList.uploads.anket &&  
+                            answerList['upload-files'] && 
                             <FaCheck style={{fill:'green'}}/>}
                         </div>
                     </li>
