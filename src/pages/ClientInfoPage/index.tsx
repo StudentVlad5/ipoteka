@@ -312,7 +312,7 @@ export const ClientInfoPage = () => {
                     </FieldWrapper>
 
                     <FieldWrapper>
-                        <TelInput onChange={setClientPhoneNumberHandler} currentValue={clientPhoneNumber} title={"Мобильный телефон"}/>
+                        <TelInput onChange={setClientPhoneNumberHandler} currentValue={clientPhoneNumber} title={"Мобильный телефон"} status={clientPhoneNumber}/>
                     </FieldWrapper>
 
                     <FieldWrapper>

@@ -213,8 +213,8 @@ export const DesktopNavigation = () => {
                             answerList['currentOrganizationWorkExperience'] && 
                             answerList['jobTitle'] && 
                             answerList['lifespanCurrentOrganization'] && 
-                            answerList['nameSalaryBank'] && 
-                            answerList['salaryCardNumber'] && 
+                            // answerList['nameSalaryBank'] && 
+                            // answerList['salaryCardNumber'] && 
                             answerList['startOfWorkDate'] && 
                             answerList['startOfWorkInCurrentOrganizationDate'] && 
                             answerList['totalWorkExperience'] && 

@@ -220,8 +220,8 @@ export const MobileNavigation = () => {
                             answerList['currentOrganizationWorkExperience'] && 
                             answerList['jobTitle'] && 
                             answerList['lifespanCurrentOrganization'] && 
-                            answerList['nameSalaryBank'] && 
-                            answerList['salaryCardNumber'] && 
+                            // answerList['nameSalaryBank'] && 
+                            // answerList['salaryCardNumber'] && 
                             answerList['startOfWorkDate'] && 
                             answerList['startOfWorkInCurrentOrganizationDate'] && 
                             answerList['totalWorkExperience'] && 
