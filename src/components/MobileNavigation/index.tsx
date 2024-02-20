@@ -192,21 +192,36 @@ export const MobileNavigation = () => {
                     {
                         (answerList && answerList.clientPartTimeJob) &&
                         <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['part-time-jop-employment-info']) && s.fullfield, location.pathname === '/part-time-jop-employment-info' && s.active)}>
-                            <Link to={"/part-time-jop-employment-info"}>Занятость (Работа по совместительству)</Link>
+                            <div className="check"> 
+                                <Link to={"/part-time-jop-employment-info"}>Занятость (Работа по совместительству)</Link>
+                                {answerList && 
+                                answerList['part-time-jop-employment-info'] && 
+                                <FaCheck style={{fill:'green'}}/>}
+                            </div>
                         </li>
                     }
 
                     {
                         (answerList && answerList.clientPartTimeJob) &&
                         <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['part-time-jop-organization']) && s.fullfield, location.pathname === '/part-time-jop-organization' && s.active)}>
-                            <Link to={"/part-time-jop-organization"}>Организация (Работа по совместительству)</Link>
+                            <div className="check"> 
+                                <Link to={"/part-time-jop-organization"}>Организация (Работа по совместительству)</Link>
+                                {answerList && 
+                                answerList['part-time-jop-organization'] && 
+                                <FaCheck style={{fill:'green'}}/>}
+                            </div>
                         </li>
                     }
 
                     {
                         (answerList && answerList.clientPartTimeJob) &&
                         <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['part-time-work-experience']) && s.fullfield, location.pathname === '/part-time-work-experience' && s.active)}>
-                            <Link to={"/part-time-work-experience"}>Трудовой стаж (Работа по совместительству)</Link>
+                            <div className="check">  
+                                <Link to={"/part-time-work-experience"}>Трудовой стаж (Работа по совместительству)</Link>
+                                {answerList && 
+                                answerList['part-time-work-experience'] && 
+                                <FaCheck style={{fill:'green'}}/>}
+                            </div>
                         </li>
                     }
 
@@ -240,27 +255,36 @@ export const MobileNavigation = () => {
                     {
                         (answerList && answerList.immovablesType2) &&
                         <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['assets-immovables-2']) && s.fullfield, location.pathname === '/assets-immovables-2' && s.active)}>
-                            <Link to={"/assets-immovables-2"}>Недвижимость #2</Link>
-                            {answerList && 
-                            answerList['assets-immovables-2'] && 
-                            <FaCheck style={{fill:'green'}}/>}
+                            <div className="check">  
+                                <Link to={"/assets-immovables-2"}>Недвижимость #2</Link>
+                                {answerList && 
+                                answerList['assets-immovables-2'] && 
+                                <FaCheck style={{fill:'green'}}/>}
+                            </div>
                         </li>
                     }
 
                     {
                         (answerList && answerList.immovablesType3) &&
                         <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['assets-immovables-3']) && s.fullfield, location.pathname === '/assets-immovables-3' && s.active)}>
-                            <Link to={"/assets-immovables-3"}>Недвижимость #3</Link>
-                            {answerList && 
-                            answerList['assets-immovables-3'] && 
-                            <FaCheck style={{fill:'green'}}/>}
+                            <div className="check"> 
+                                <Link to={"/assets-immovables-3"}>Недвижимость #3</Link>
+                                {answerList && 
+                                answerList['assets-immovables-3'] && 
+                                <FaCheck style={{fill:'green'}}/>}
+                            </div>
                         </li>
                     }
 
                     {
                         (answerList && answerList.clientPartTimeJob) &&
                         <li onClick= {onCLickCloseBtnHandler} className={classNames(s.navItem, (answerList && answerList['lph-data']) && s.fullfield, location.pathname === '/lph-data' && s.active)}>
-                            <Link to={"/lph-data"}>Личное подсобное хозяйство</Link>
+                            <div className="check"> 
+                                <Link to={"/lph-data"}>Личное подсобное хозяйство</Link>
+                                {answerList && 
+                                answerList['lph-data'] && 
+                                <FaCheck style={{fill:'green'}}/>}
+                           </div>
                         </li>
                     }
 
